@@ -1,0 +1,54 @@
+{
+  "order": false,
+  "user": false,
+  "description": {
+    "tr": "Közhane: Gaziantep'te meşe kömürü ocakbaşı; kara tahta menü, ikiliden kalabalığa sofra setleri ve masa ayırtma. Demo site; içerik kurgusaldır.",
+    "en": "Közhane: an oak-charcoal grill house in Gaziantep; a chalkboard menu, table sets from two to a crowd, and table bookings. Demo site; content is fictional.",
+    "ar": "كوزهانه: مشواة على فحم البلوط في غازي عنتاب؛ قائمة على السبورة وموائد من شخصين إلى مجموعة كبيرة وحجز طاولات. موقع تجريبي؛ المحتوى افتراضي."
+  },
+  "keyword": {
+    "tr": "ocakbaşı, kebap, adana, şiş, lahmacun, künefe, Gaziantep",
+    "en": "grill house, kebab, adana, skewer, lahmacun, kunefe, Gaziantep",
+    "ar": "مشواة، كباب، أضنة، شيش، لحم بعجين، كنافة، غازي عنتاب"
+  },
+  "category": "Kurumsal",
+  "name": "Közhane",
+  "domain": "kebapci-2.webyapar.com",
+  "langs": {
+    "tr": true,
+    "en": true,
+    "ar": true,
+    "de": false,
+    "ru": false,
+    "es": false,
+    "fr": false,
+    "it": false,
+    "ja": false,
+    "zh": false,
+    "ko": false,
+    "pt": false
+  },
+  "logo": "logo.png",
+  "multi": false,
+  "publishMode": "static",
+  "font": {
+    "body": "source-sans-3",
+    "heading": "montserrat",
+    "ar": {
+      "body": "ibm-plex-sans-arabic",
+      "heading": "noto-kufi-arabic"
+    }
+  },
+  "colorScheme": "auto",
+  "theme_color": "#4E7A35",
+  "seo": {
+    "noindex": true
+  },
+  "cssTokens": {
+    "--mx-radius-sm": "6px",
+    "--mx-radius-md": "10px",
+    "--mx-radius-lg": "14px",
+    "--mx-radius-xl": "19px"
+  },
+  "icon": "icon.png"
+}

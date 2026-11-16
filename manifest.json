@@ -1,0 +1,29 @@
+{
+  "name": "Közhane",
+  "short_name": "Közhane",
+  "description": "Közhane: Gaziantep'te meşe kömürü ocakbaşı; kara tahta menü, ikiliden kalabalığa sofra setleri ve masa ayırtma. Demo site; içerik kurgusaldır.",
+  "start_url": "/tr/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4E7A35",
+  "lang": "tr",
+  "icons": [
+    {
+      "src": "/img/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icon.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
