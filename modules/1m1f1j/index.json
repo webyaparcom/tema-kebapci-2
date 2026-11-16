@@ -1,0 +1,57 @@
+{
+  "name": "İletişim Zikzak Kanal — akan kesikli omurganın iki yanına sırayla açılan kanal kartları",
+  "description": "Ortalı başlığın altında dikey bir omurga: kesikli çizgisi aşağı doğru akar, üzerinde her kanal için yuvarlak ikon düğümü; kartlar sırayla bir sağa bir sola açılır (tek sırada metin omurgaya yaslı), her kart düğüme kesikli bir bağla bağlanır ve hafif eğik durur; üzerine gelince kart düzleşir, düğüm döner. Dar ekranda omurga kenara geçer, kartlar tek yanda. iletisim-zaman-cizgisi kanalları tek yanlı sakin bir düğüm hattında sıralar, iletisim-yonerge yatay metro hattıdır; bu modül ZİKZAK: üç sütunlu satır ızgarasında nth-child(even) ile kartın omurganın öbür yanına geçmesi, ::after kesikli bağ (inset-inline-start/end takası), background-position ile akan omurga ve tek / çift eğim. Kanallar desing'den (adres · telefon · WhatsApp · e-posta · saat) + data satırları; etiketler dil sözlüğü, renkler desing + var(--mx-site-*), mantıksal CSS → RTL. Kanal yoksa blok basılmaz.",
+  "version": "1.0.0",
+  "icon": "conversion_path",
+  "category": "contact",
+  "subCategory": "zigzag-spine",
+  "tags": [
+    "contact",
+    "zigzag",
+    "spine",
+    "alternating",
+    "timeline",
+    "rtl",
+    "fabrika"
+  ],
+  "desing": {
+    "max": "1200px",
+    "bosluk": "clamp(56px, 8vw, 104px)",
+    "yuvarlak": "18px",
+    "ust": "",
+    "baslik": "",
+    "metin": "",
+    "adres": "",
+    "telefon": "",
+    "eposta": "",
+    "whatsapp": "",
+    "saat": "",
+    "haritaUrl": "",
+    "haritaGomme": "",
+    "waMesaj": "",
+    "bg": "var(--mx-site-bg, #ffffff)",
+    "text": "var(--mx-site-text, #111318)",
+    "muted": "color-mix(in srgb, var(--mx-site-text, #111318) 68%, var(--mx-site-bg, #ffffff))",
+    "kartBg": "var(--mx-site-surface, #f6f7f9)",
+    "cizgi": "color-mix(in srgb, var(--mx-site-text, #111318) 12%, transparent)",
+    "accent": "var(--mx-site-primary, #2563eb)",
+    "accentInk": "color-mix(in srgb, var(--mx-site-primary, #2563eb) 70%, var(--mx-site-text, #111318))",
+    "accentText": "var(--mx-site-primary-contrast, #ffffff)",
+    "vurguBg": "var(--mx-site-primary, #2563eb)",
+    "vurguText": "var(--mx-site-primary-contrast, #ffffff)",
+    "bgcolor": "var(--mx-site-bg, #ffffff)",
+    "color": "var(--mx-site-text, #111318)"
+  },
+  "data": [],
+  "veri": {
+    "statik": true,
+    "dinamik": false,
+    "kaynak": "desing",
+    "alanlar": {
+      "ikon": "Material Symbols adı (kanal türü ikondan da anlaşılır: mail · call · location_on · schedule)",
+      "deger": "dil sözlüğü (görünen değer, zorunlu; eski `text`)",
+      "url": "bağlantı (boşsa e-posta/telefon/haritadan türetilir)",
+      "baslik": "dil sözlüğü (kanal etiketi)"
+    }
+  }
+}

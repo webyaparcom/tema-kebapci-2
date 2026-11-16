@@ -1,0 +1,40 @@
+{
+  "id": "29s0qbkgqv",
+  "name": {
+    "tr": "Sofralar",
+    "en": "Table sets",
+    "ar": "الموائد"
+  },
+  "description": {
+    "tr": "İkiliden kalabalığa sofra setleri (örnek fiyat).",
+    "en": "Table sets from two to a crowd (example prices).",
+    "ar": "موائد من شخصين إلى مجموعة كبيرة (أسعار نموذجية)."
+  },
+  "keyword": {
+    "tr": "sofra, grup, aile",
+    "en": "table set, group, family",
+    "ar": "مائدة، مجموعة، عائلة"
+  },
+  "path": "teklif-al",
+  "icon": "table_restaurant",
+  "category": "",
+  "status": "play",
+  "desing": {
+    "header": [],
+    "body": [
+      "9473hl",
+      "kb4cif"
+    ],
+    "footer": []
+  },
+  "index": 2,
+  "url": "",
+  "text": {},
+  "title": {
+    "tr": "Sofralar",
+    "en": "Table sets",
+    "ar": "الموائد"
+  },
+  "date": "2026-11-16T18:03:21.301Z",
+  "update": "2026-11-16T18:18:56.693Z"
+}

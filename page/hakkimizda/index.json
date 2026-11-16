@@ -1,0 +1,47 @@
+{
+  "name": {
+    "tr": "Ocak",
+    "en": "The grill",
+    "ar": "الموقد"
+  },
+  "status": "play",
+  "category": "",
+  "id": "hakkimizda",
+  "url": "",
+  "path": "hakkimizda",
+  "index": 1,
+  "icon": "outdoor_grill",
+  "desing": {
+    "header": [],
+    "body": [
+      "gzfq88",
+      "op4ts8"
+    ],
+    "footer": []
+  },
+  "pathnext": "",
+  "description": {
+    "tr": "Ocak sayacı ve misafir notları.",
+    "en": "Grill counter and guest notes.",
+    "ar": "عدّاد الموقد وملاحظات الضيوف."
+  },
+  "spot": {
+    "tr": "",
+    "en": "",
+    "ar": ""
+  },
+  "desc": {},
+  "title": {
+    "tr": "Ocak",
+    "en": "The grill",
+    "ar": "الموقد"
+  },
+  "keyword": {
+    "tr": "ocakbaşı, yorum",
+    "en": "grill house, reviews",
+    "ar": "مشواة، تقييمات"
+  },
+  "text": {},
+  "update": "2026-11-16T18:18:56.690Z",
+  "date": "2026-10-30"
+}

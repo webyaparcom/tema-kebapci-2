@@ -1,0 +1,78 @@
+<section class="modulex-yorum-polaroid-ip{{fbsinif}}" {{fbetiket}}>
+  <div class="modulex-yorum-polaroid-ip-ic">
+    {{fbbas}}
+    {{fbgovde}}
+  </div>
+</section>
+
+<style>
+  /* yorum-polaroid-ip — Asılı nesne iskeleti: her öğe kendi ip kavisini (border-radius eğrisi) ve mandalını çizer, sıra sarınca ip de yeni satıra geçer; yorum-not-kagidi'nin panosundan ve yorum-portre-ray'in kaydırmalı rayından farklı olarak fotoğraf + el yazısı alt bant, salınım hareketi. */
+  .modulex-yorum-polaroid-ip { box-sizing: border-box; width: 100%; padding: --bosluk-- 20px; background: --bg--; color: --text--; font-size: 1rem; line-height: 1.6; font-family: var(--mx-font-sans, inherit); overflow-wrap: break-word; }
+  .modulex-yorum-polaroid-ip *, .modulex-yorum-polaroid-ip *::before, .modulex-yorum-polaroid-ip *::after { box-sizing: border-box; }
+  /* ham/css.css «* { font-size: 14px }» kalıtımı keser — modül içinde boyut üstten gelsin (ikon yazı tipi hariç) */
+  .modulex-yorum-polaroid-ip :where(*:not(.material-symbols-outlined)) { font-size: inherit; }
+  /* aynı «*» kuralı font-weight 400 · line-height 1.2 · font-family de basar — modül içinde kalıtım */
+  .modulex-yorum-polaroid-ip :where(*:not(.material-symbols-outlined)) { font-weight: inherit; line-height: inherit; font-family: inherit; }
+  .modulex-yorum-polaroid-ip :where(h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd) { margin: 0; }
+  .modulex-yorum-polaroid-ip :where(ul, ol) { padding: 0; list-style: none; }
+  .modulex-yorum-polaroid-ip img { display: block; max-width: 100%; }
+  /* <img width height> öznitelik yüksekliği CSS aspect-ratio'yu ezer — sıfır özgüllükle auto (modül sınıfının height'ı yine kazanır) */
+  :where(.modulex-yorum-polaroid-ip) img { height: auto; }
+  .modulex-yorum-polaroid-ip [hidden] { display: none !important; }
+  .modulex-yorum-polaroid-ip :where(a, button, summary, [data-cevir]) { cursor: pointer; }
+  .modulex-yorum-polaroid-ip :where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-yorum-polaroid-ip-ic { max-width: --max--; margin-inline: auto; }
+  .modulex-yorum-polaroid-ip-bas { display: grid; gap: 12px; margin-block-end: clamp(32px, 4vw, 52px); }
+  .modulex-yorum-polaroid-ip--bassiz .modulex-yorum-polaroid-ip-bas { display: none; }
+  .modulex-yorum-polaroid-ip-ust { color: --accentInk--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-yorum-polaroid-ip-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 750; letter-spacing: -0.025em; line-height: 1.1; }
+  .modulex-yorum-polaroid-ip-metin { color: --muted--; font-size: 1.05rem; line-height: 1.7; }
+  .modulex-yorum-polaroid-ip-bas { max-width: 780px; margin-inline: auto; text-align: center; justify-items: center; }
+  .modulex-yorum-polaroid-ip-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
+  .modulex-yorum-polaroid-ip-dugme { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 22px; border: 2px solid --accent--; border-radius: 999px; background: --accent--; color: --accentText--; font-weight: 700; text-decoration: none; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease; }
+  .modulex-yorum-polaroid-ip-dugme:hover { transform: translateY(-2px); }
+  .modulex-yorum-polaroid-ip-dugme--ikincil { background: transparent; color: --text--; border-color: --cizgi--; }
+  .modulex-yorum-polaroid-ip-dugme--ikincil:hover { border-color: --accent--; }
+  .modulex-yorum-polaroid-ip-dugme .material-symbols-outlined { font-size: 20px; }
+
+  .modulex-yorum-polaroid-ip-ad { font-weight: 700; }
+  .modulex-yorum-polaroid-ip-kisi { display: grid; gap: 2px; min-width: 0; }
+  .modulex-yorum-polaroid-ip-unvan { color: --muted--; font-size: 0.88rem; line-height: 1.45; }
+  .modulex-yorum-polaroid-ip-puan { display: flex; gap: 2px; color: --yildiz--; }
+  .modulex-yorum-polaroid-ip-puan .material-symbols-outlined { font-size: 20px; font-variation-settings: "FILL" 1; }
+  .modulex-yorum-polaroid-ip-yildiz--bos { opacity: 0.3; }
+  .modulex-yorum-polaroid-ip-avatar { flex: none; width: 52px; height: 52px; border-radius: 50%; object-fit: cover; }
+  .modulex-yorum-polaroid-ip-harf { display: inline-grid; place-items: center; background: color-mix(in srgb, --accent-- 18%, --kartBg--); color: --accentInk--; font-weight: 800; letter-spacing: 0.02em; }
+  .modulex-yorum-polaroid-ip-yazar { display: flex; align-items: center; gap: 12px; }
+
+  .modulex-yorum-polaroid-ip-ip { display: flex; flex-wrap: wrap; justify-content: center; gap: 52px 34px; padding-block-start: 20px; }
+  .modulex-yorum-polaroid-ip-asili { position: relative; width: min(100%, 270px); padding-block-start: 24px; }
+  .modulex-yorum-polaroid-ip-asili::before { content: ""; position: absolute; inset-block-start: -14px; inset-inline: -18px; height: 32px; border-block-end: 2px solid color-mix(in srgb, --text-- 50%, transparent); border-radius: 0 0 50% 50% / 0 0 100% 100%; }
+  .modulex-yorum-polaroid-ip-mandal { position: absolute; inset-block-start: 6px; inset-inline-start: calc(50% - 7px); z-index: 2; width: 14px; height: 34px; border-radius: 3px; background: color-mix(in srgb, --yildiz-- 50%, --kartBg--); box-shadow: 0 2px 4px color-mix(in srgb, --text-- 30%, transparent); }
+  .modulex-yorum-polaroid-ip-polaroid { display: grid; gap: 14px; padding: 12px 12px 20px; background: --kartBg--; box-shadow: 0 18px 30px -20px color-mix(in srgb, --text-- 60%, transparent), 0 0 0 1px --cizgi--; transform: rotate(var(--a)); transform-origin: 50% 0; transition: transform 0.5s cubic-bezier(0.3, 1.6, 0.5, 1); }
+  .modulex-yorum-polaroid-ip-asili:hover .modulex-yorum-polaroid-ip-polaroid { animation: modulex-yorum-polaroid-ip-salla 1.4s ease-in-out; }
+  @keyframes modulex-yorum-polaroid-ip-salla { 0%, 100% { transform: rotate(var(--a)); } 30% { transform: rotate(calc(var(--a) * -1.8)); } 65% { transform: rotate(calc(var(--a) * 0.7)); } }
+  .modulex-yorum-polaroid-ip-kare { position: relative; display: grid; aspect-ratio: 1; overflow: hidden; background: color-mix(in srgb, --accent-- 16%, --bg--); }
+  .modulex-yorum-polaroid-ip-foto { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.88); transition: filter 0.5s ease; }
+  .modulex-yorum-polaroid-ip-asili:hover .modulex-yorum-polaroid-ip-foto { filter: none; }
+  .modulex-yorum-polaroid-ip-mono { place-self: center; color: --accentInk--; font-family: var(--mx-font-heading, inherit); font-size: 4.6rem; font-weight: 900; letter-spacing: -0.04em; }
+  .modulex-yorum-polaroid-ip-kare .modulex-yorum-polaroid-ip-puan { position: absolute; inset-block-end: 10px; inset-inline-start: 10px; padding: 3px 8px; border-radius: 99px; background: --kartBg--; }
+  .modulex-yorum-polaroid-ip-kare .modulex-yorum-polaroid-ip-puan .material-symbols-outlined { font-size: 15px; }
+  .modulex-yorum-polaroid-ip-alt { display: grid; gap: 8px; padding-inline: 4px; }
+  .modulex-yorum-polaroid-ip-alinti { font-family: "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive; font-size: 0.98rem; line-height: 1.55; }
+  .modulex-yorum-polaroid-ip-isim { color: --muted--; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.03em; }
+  @media (max-width: 768px) {
+    .modulex-yorum-polaroid-ip-ip { gap: 46px 20px; }
+    .modulex-yorum-polaroid-ip-asili { width: min(100%, 300px); }
+    .modulex-yorum-polaroid-ip-asili::before { inset-inline: -10px; }
+  }
+
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-yorum-polaroid-ip :is(.modulex-yorum-polaroid-ip-baslik, .modulex-yorum-polaroid-ip-ust, h3, h4, strong) { letter-spacing: 0; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-yorum-polaroid-ip-baslik { line-height: 1.35; }
+  @media (max-width: 768px) {
+    .modulex-yorum-polaroid-ip { padding-inline: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .modulex-yorum-polaroid-ip *, .modulex-yorum-polaroid-ip *::before, .modulex-yorum-polaroid-ip *::after { animation: none !important; transition: none !important; }
+  }
+</style>

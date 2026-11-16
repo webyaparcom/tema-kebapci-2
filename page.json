@@ -1,0 +1,113 @@
+{
+  "data": [
+    {
+      "id": "vu27dlxdnw",
+      "name": {
+        "tr": "Menü",
+        "en": "Menu",
+        "ar": "القائمة"
+      },
+      "description": {
+        "tr": "Kara tahta menü ve örnek fiyatlar.",
+        "en": "Chalkboard menu and example prices.",
+        "ar": "قائمة السبورة والأسعار النموذجية."
+      },
+      "path": "hizmetler",
+      "icon": "restaurant_menu",
+      "category": "",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [
+          "4po893",
+          "kb4cif"
+        ],
+        "footer": []
+      },
+      "index": 0
+    },
+    {
+      "name": {
+        "tr": "Ocak",
+        "en": "The grill",
+        "ar": "الموقد"
+      },
+      "status": "play",
+      "id": "hakkimizda",
+      "path": "hakkimizda",
+      "category": "",
+      "url": "",
+      "index": 1,
+      "icon": "outdoor_grill",
+      "desing": {
+        "header": [],
+        "body": [
+          "gzfq88",
+          "op4ts8"
+        ],
+        "footer": []
+      },
+      "pathnext": "",
+      "description": {
+        "tr": "Ocak sayacı ve misafir notları.",
+        "en": "Grill counter and guest notes.",
+        "ar": "عدّاد الموقد وملاحظات الضيوف."
+      }
+    },
+    {
+      "id": "29s0qbkgqv",
+      "name": {
+        "tr": "Sofralar",
+        "en": "Table sets",
+        "ar": "الموائد"
+      },
+      "description": {
+        "tr": "İkiliden kalabalığa sofra setleri (örnek fiyat).",
+        "en": "Table sets from two to a crowd (example prices).",
+        "ar": "موائد من شخصين إلى مجموعة كبيرة (أسعار نموذجية)."
+      },
+      "path": "teklif-al",
+      "icon": "table_restaurant",
+      "category": "",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [
+          "9473hl",
+          "kb4cif"
+        ],
+        "footer": []
+      },
+      "index": 2
+    },
+    {
+      "name": {
+        "tr": "İletişim",
+        "en": "Contact",
+        "ar": "اتصل بنا"
+      },
+      "status": "play",
+      "id": "iletisim",
+      "path": "iletisim",
+      "category": "",
+      "url": "",
+      "index": 3,
+      "icon": "call",
+      "desing": {
+        "header": [],
+        "body": [
+          "1m1f1j",
+          "k8mp01"
+        ],
+        "footer": []
+      },
+      "pathnext": "",
+      "description": {
+        "tr": "Adres, saatler ve harita.",
+        "en": "Address, hours and map.",
+        "ar": "العنوان والساعات والخريطة."
+      }
+    }
+  ],
+  "desc": []
+}

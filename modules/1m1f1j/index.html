@@ -1,0 +1,95 @@
+<section class="modulex-iletisim-zigzag-kanal{{fbsinif}}" {{fbetiket}}>
+  <div class="modulex-iletisim-zigzag-kanal-ic">
+    {{fbbas}}
+    {{fbgovde}}
+  </div>
+</section>
+
+<style>
+  /* iletisim-zigzag-kanal — iletisim-zaman-cizgisi kanalları tek yanlı sakin bir düğüm hattında sıralar, iletisim-yonerge yatay metro hattıdır; bu modül ZİKZAK: üç sütunlu satır ızgarasında nth-child(even) ile kartın omurganın öbür yanına geçmesi, ::after kesikli bağ (inset-inline-start/end takası), background-position ile akan omurga ve tek / çift eğim. */
+  .modulex-iletisim-zigzag-kanal { box-sizing: border-box; width: 100%; padding: --bosluk-- 20px; background: --bg--; color: --text--; font-size: 1rem; line-height: 1.6; font-family: var(--mx-font-sans, inherit); overflow-wrap: break-word; }
+  .modulex-iletisim-zigzag-kanal *, .modulex-iletisim-zigzag-kanal *::before, .modulex-iletisim-zigzag-kanal *::after { box-sizing: border-box; }
+  /* ham/css.css «* { font-size: 14px }» kalıtımı keser — modül içinde boyut üstten gelsin (ikon yazı tipi hariç) */
+  .modulex-iletisim-zigzag-kanal :where(*:not(.material-symbols-outlined)) { font-size: inherit; }
+  /* aynı «*» kuralı font-weight 400 · line-height 1.2 · font-family de basar — modül içinde kalıtım */
+  .modulex-iletisim-zigzag-kanal :where(*:not(.material-symbols-outlined)) { font-weight: inherit; line-height: inherit; font-family: inherit; }
+  .modulex-iletisim-zigzag-kanal :where(h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd) { margin: 0; }
+  .modulex-iletisim-zigzag-kanal :where(ul, ol) { padding: 0; list-style: none; }
+  .modulex-iletisim-zigzag-kanal img { display: block; max-width: 100%; }
+  /* <img width height> öznitelik yüksekliği CSS aspect-ratio'yu ezer — sıfır özgüllükle auto (modül sınıfının height'ı yine kazanır) */
+  :where(.modulex-iletisim-zigzag-kanal) img { height: auto; }
+  .modulex-iletisim-zigzag-kanal [hidden] { display: none !important; }
+  .modulex-iletisim-zigzag-kanal :where(a, button, summary, [data-cevir]) { cursor: pointer; }
+  .modulex-iletisim-zigzag-kanal :where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-iletisim-zigzag-kanal-ic { max-width: --max--; margin-inline: auto; }
+  .modulex-iletisim-zigzag-kanal-bas { display: grid; gap: 12px; margin-block-end: clamp(32px, 4vw, 52px); }
+  .modulex-iletisim-zigzag-kanal--bassiz .modulex-iletisim-zigzag-kanal-bas { display: none; }
+  .modulex-iletisim-zigzag-kanal-ust { color: --accentInk--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-iletisim-zigzag-kanal-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 750; letter-spacing: -0.025em; line-height: 1.1; }
+  .modulex-iletisim-zigzag-kanal-metin { color: --muted--; font-size: 1.05rem; line-height: 1.7; }
+  .modulex-iletisim-zigzag-kanal-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
+  .modulex-iletisim-zigzag-kanal-dugme { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 22px; border: 2px solid --accent--; border-radius: 999px; background: --accent--; color: --accentText--; font-weight: 700; text-decoration: none; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease; }
+  .modulex-iletisim-zigzag-kanal-dugme:hover { transform: translateY(-2px); }
+  .modulex-iletisim-zigzag-kanal-dugme--ikincil { background: transparent; color: --text--; border-color: --cizgi--; }
+  .modulex-iletisim-zigzag-kanal-dugme--ikincil:hover { border-color: --accent--; }
+  .modulex-iletisim-zigzag-kanal-dugme .material-symbols-outlined { font-size: 20px; }
+
+  .modulex-iletisim-zigzag-kanal-zz-akis { display: grid; gap: clamp(26px, 4vw, 44px); }
+  .modulex-iletisim-zigzag-kanal-zz-bas { display: grid; gap: 12px; justify-items: center; max-inline-size: 760px; margin-inline: auto; text-align: center; }
+  .modulex-iletisim-zigzag-kanal-zz-hat { position: relative; display: grid; gap: clamp(18px, 3vw, 30px); }
+  .modulex-iletisim-zigzag-kanal-zz-hat::before { content: ""; position: absolute; inset-block: 0; inset-inline-start: calc(50% - 2px); inline-size: 4px; background: repeating-linear-gradient(to bottom, --accent-- 0 14px, transparent 14px 26px); background-size: 100% 26px; animation: modulex-iletisim-zigzag-kanal-zz-ak 1.6s linear infinite; }
+  @keyframes modulex-iletisim-zigzag-kanal-zz-ak { from { background-position: 0 0; } to { background-position: 0 26px; } }
+  .modulex-iletisim-zigzag-kanal-zz-dal { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 76px minmax(0, 1fr); align-items: center; }
+  .modulex-iletisim-zigzag-kanal-zz-dugum { z-index: 1; grid-column: 2; grid-row: 1; justify-self: center; display: inline-grid; place-items: center; inline-size: 64px; block-size: 64px; border: 4px solid --bg--; border-radius: 50%; background: --accent--; color: --accentText--; box-shadow: 0 0 0 2px --accent--; transition: transform 0.3s ease; }
+  .modulex-iletisim-zigzag-kanal-zz-dugum .material-symbols-outlined { font-size: 28px; }
+  .modulex-iletisim-zigzag-kanal-zz-dal:hover .modulex-iletisim-zigzag-kanal-zz-dugum { transform: scale(1.12) rotate(-10deg); }
+  .modulex-iletisim-zigzag-kanal-zz-kart { position: relative; grid-column: 1; grid-row: 1; display: grid; justify-items: end; gap: 4px; min-width: 0; margin-inline-end: 22px; padding: 20px 22px; border-radius: 18px; background: --kartBg--; text-align: end; box-shadow: 0 18px 36px -28px color-mix(in srgb, --text-- 60%, transparent); transform: rotate(-1.2deg); transition: transform 0.3s ease; animation: modulex-iletisim-zigzag-kanal-zz-gir 0.55s ease both; animation-delay: calc(var(--i, 0) * 110ms); }
+  .modulex-iletisim-zigzag-kanal-zz-dal:nth-child(even) .modulex-iletisim-zigzag-kanal-zz-kart { grid-column: 3; justify-items: start; margin-inline: 22px 0; text-align: start; transform: rotate(1.2deg); }
+  .modulex-iletisim-zigzag-kanal-zz-dal:hover .modulex-iletisim-zigzag-kanal-zz-kart { transform: rotate(0); }
+  .modulex-iletisim-zigzag-kanal-zz-kart::after { content: ""; position: absolute; inset-block-start: calc(50% - 1px); inset-inline-end: -36px; inline-size: 36px; border-block-start: 2px dashed --accent--; }
+  .modulex-iletisim-zigzag-kanal-zz-dal:nth-child(even) .modulex-iletisim-zigzag-kanal-zz-kart::after { inset-inline-end: auto; inset-inline-start: -36px; }
+  @keyframes modulex-iletisim-zigzag-kanal-zz-gir { from { opacity: 0; transform: scale(0.92); } }
+  .modulex-iletisim-zigzag-kanal-zz-kart .modulex-iletisim-zigzag-kanal-deger { font-size: 1.12rem; }
+  @media (max-width: 768px) {
+    .modulex-iletisim-zigzag-kanal-zz-hat::before { inset-inline-start: 30px; }
+    .modulex-iletisim-zigzag-kanal-zz-dal { grid-template-columns: 64px minmax(0, 1fr); gap: 0 14px; }
+    .modulex-iletisim-zigzag-kanal-zz-dugum { grid-column: 1; inline-size: 56px; block-size: 56px; }
+    .modulex-iletisim-zigzag-kanal-zz-kart, .modulex-iletisim-zigzag-kanal-zz-dal:nth-child(even) .modulex-iletisim-zigzag-kanal-zz-kart { grid-column: 2; justify-items: start; margin-inline: 0; text-align: start; transform: none; }
+    .modulex-iletisim-zigzag-kanal-zz-kart::after { display: none; }
+  }
+  .modulex-iletisim-zigzag-kanal-kikon { flex: none; display: inline-grid; place-items: center; width: 48px; height: 48px; border-radius: 14px; background: color-mix(in srgb, --accent-- 14%, transparent); color: --accentInk--; font-size: 24px; }
+  .modulex-iletisim-zigzag-kanal-ketiket { display: block; color: --muted--; font-size: 0.82rem; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase; }
+  .modulex-iletisim-zigzag-kanal-deger { color: inherit; font-weight: 650; text-decoration: none; overflow-wrap: anywhere; transition: color 0.2s ease; }
+  a.modulex-iletisim-zigzag-kanal-deger:hover { color: --accentInk--; text-decoration: underline; text-underline-offset: 4px; }
+  .modulex-iletisim-zigzag-kanal-eylem { display: inline-flex; align-items: center; gap: 6px; color: --accentInk--; font-weight: 700; text-decoration: none; transition: gap 0.2s ease; }
+  .modulex-iletisim-zigzag-kanal-eylem:hover { gap: 10px; }
+  .modulex-iletisim-zigzag-kanal-eylem .material-symbols-outlined { font-size: 18px; }
+  .modulex-iletisim-zigzag-kanal-kopya { display: none; align-items: center; gap: 6px; min-height: 36px; padding: 6px 12px; border: 1px solid --cizgi--; border-radius: 999px; background: transparent; color: --text--; font: inherit; font-size: 0.85rem; font-weight: 650; transition: border-color 0.2s ease, background 0.2s ease; }
+  .modulex-iletisim-zigzag-kanal--kjs .modulex-iletisim-zigzag-kanal-kopya { display: inline-flex; }
+  .modulex-iletisim-zigzag-kanal-kopya:hover { border-color: --accent--; }
+  .modulex-iletisim-zigzag-kanal-kopya .material-symbols-outlined { font-size: 18px; }
+  .modulex-iletisim-zigzag-kanal--kopyalandi { background: color-mix(in srgb, --accent-- 14%, transparent); }
+  .modulex-iletisim-zigzag-kanal-sosyal { display: grid; gap: 10px; }
+  .modulex-iletisim-zigzag-kanal-sbaslik { color: --muted--; font-size: 0.9rem; font-weight: 650; }
+  .modulex-iletisim-zigzag-kanal-sliste { display: flex; flex-wrap: wrap; gap: 8px; }
+  .modulex-iletisim-zigzag-kanal-cip { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 8px 14px; border: 1px solid --cizgi--; border-radius: 999px; color: inherit; font-weight: 650; text-decoration: none; transition: border-color 0.2s ease, transform 0.2s ease; }
+  .modulex-iletisim-zigzag-kanal-cip:hover { border-color: --accent--; transform: translateY(-2px); }
+  .modulex-iletisim-zigzag-kanal-cikon { font-size: 18px; }
+  .modulex-iletisim-zigzag-kanal-harita { position: relative; overflow: hidden; min-height: 280px; border-radius: --yuvarlak--; background: --kartBg--; }
+  .modulex-iletisim-zigzag-kanal-iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .modulex-iletisim-zigzag-kanal-hdesen { position: absolute; inset: 0; display: grid; place-items: center; background-color: color-mix(in srgb, --accent-- 8%, --kartBg--); background-image: linear-gradient(color-mix(in srgb, --text-- 7%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, --text-- 7%, transparent) 1px, transparent 1px), radial-gradient(circle at 30% 40%, color-mix(in srgb, --accent-- 18%, transparent) 0 18%, transparent 19%); background-size: 36px 36px, 36px 36px, 100% 100%; }
+  .modulex-iletisim-zigzag-kanal-pin { color: --accentInk--; font-size: 56px; animation: modulex-iletisim-zigzag-kanal-zipla 2.4s ease-in-out infinite; }
+  @keyframes modulex-iletisim-zigzag-kanal-zipla { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  .modulex-iletisim-zigzag-kanal-hyol { position: absolute; inset-block-end: 16px; inset-inline-start: 16px; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 16px; border-radius: 999px; background: --bg--; color: --text--; font-weight: 700; text-decoration: none; box-shadow: 0 6px 20px color-mix(in srgb, --text-- 16%, transparent); transition: transform 0.2s ease; }
+  .modulex-iletisim-zigzag-kanal-hyol:hover { transform: translateY(-2px); }
+  .modulex-iletisim-zigzag-kanal-hyol .material-symbols-outlined { font-size: 18px; color: --accentInk--; }
+
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-iletisim-zigzag-kanal :is(.modulex-iletisim-zigzag-kanal-baslik, .modulex-iletisim-zigzag-kanal-ust, h3, h4, strong) { letter-spacing: 0; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-iletisim-zigzag-kanal-baslik { line-height: 1.35; }
+  @media (max-width: 768px) {
+    .modulex-iletisim-zigzag-kanal { padding-inline: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .modulex-iletisim-zigzag-kanal *, .modulex-iletisim-zigzag-kanal *::before, .modulex-iletisim-zigzag-kanal *::after { animation: none !important; transition: none !important; }
+  }
+</style>

@@ -1,0 +1,108 @@
+<section class="modulex-cagri-kupon-kes{{fbsinif}}" {{fbetiket}}>
+  <div class="modulex-cagri-kupon-kes-ic">
+    {{fbbas}}
+    {{fbgovde}}
+  </div>
+</section>
+
+<style>
+  /* cagri-kupon-kes — cagri-bilet koçanlı bilet metaforudur, kod taşımaz; bu modül kopyalanabilir kupon kodu (pano + «Kopyalandı» geri bildirimi) ve indirim damgasıyla doğrudan alışverişe çağırır — ailede kod/pano etkileşimi yok. */
+  .modulex-cagri-kupon-kes { box-sizing: border-box; width: 100%; padding: --bosluk-- 20px; background: --bg--; color: --yaziRenk--; font-size: 1rem; line-height: 1.6; font-family: var(--mx-font-sans, inherit); overflow-wrap: break-word; }
+  .modulex-cagri-kupon-kes *, .modulex-cagri-kupon-kes *::before, .modulex-cagri-kupon-kes *::after { box-sizing: border-box; }
+  /* ham/css.css «* { font-size: 14px }» kalıtımı keser — modül içinde boyut üstten gelsin (ikon yazı tipi hariç) */
+  .modulex-cagri-kupon-kes :where(*:not(.material-symbols-outlined)) { font-size: inherit; }
+  /* aynı «*» kuralı font-weight 400 · line-height 1.2 · font-family de basar — modül içinde kalıtım */
+  .modulex-cagri-kupon-kes :where(*:not(.material-symbols-outlined)) { font-weight: inherit; line-height: inherit; font-family: inherit; }
+  .modulex-cagri-kupon-kes :where(h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd) { margin: 0; }
+  .modulex-cagri-kupon-kes :where(ul, ol) { padding: 0; list-style: none; }
+  .modulex-cagri-kupon-kes img { display: block; max-width: 100%; }
+  /* <img width height> öznitelik yüksekliği CSS aspect-ratio'yu ezer — sıfır özgüllükle auto (modül sınıfının height'ı yine kazanır) */
+  :where(.modulex-cagri-kupon-kes) img { height: auto; }
+  .modulex-cagri-kupon-kes [hidden] { display: none !important; }
+  .modulex-cagri-kupon-kes :where(a, button, summary, [data-cevir]) { cursor: pointer; }
+  .modulex-cagri-kupon-kes :where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-cagri-kupon-kes-ic { max-width: --max--; margin-inline: auto; }
+  .modulex-cagri-kupon-kes-bas { display: grid; gap: 12px; margin-block-end: clamp(32px, 4vw, 52px); }
+  .modulex-cagri-kupon-kes--bassiz .modulex-cagri-kupon-kes-bas { display: none; }
+  .modulex-cagri-kupon-kes-ust { color: --accentInk--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-cagri-kupon-kes-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 750; letter-spacing: -0.025em; line-height: 1.1; }
+  .modulex-cagri-kupon-kes-metin { color: --muted--; font-size: 1.05rem; line-height: 1.7; }
+  .modulex-cagri-kupon-kes-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
+  .modulex-cagri-kupon-kes-dugme { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 22px; border: 2px solid --accent--; border-radius: 999px; background: --accent--; color: --accentText--; font-weight: 700; text-decoration: none; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease; }
+  .modulex-cagri-kupon-kes-dugme:hover { transform: translateY(-2px); }
+  .modulex-cagri-kupon-kes-dugme--ikincil { background: transparent; color: --yaziRenk--; border-color: --cizgi--; }
+  .modulex-cagri-kupon-kes-dugme--ikincil:hover { border-color: --accent--; }
+  .modulex-cagri-kupon-kes-dugme .material-symbols-outlined { font-size: 20px; }
+
+  .modulex-cagri-kupon-kes-kupon { position: relative; display: grid; grid-template-columns: minmax(160px, 0.38fr) minmax(0, 1fr); border: 3px dashed --cizgi--; border-radius: --yuvarlak--; background: --kartBg--; transition: border-color 0.3s ease; }
+  .modulex-cagri-kupon-kes-kupon:hover { border-color: --accent--; }
+  .modulex-cagri-kupon-kes-kupon--yalin { grid-template-columns: minmax(0, 1fr); }
+  .modulex-cagri-kupon-kes-makas { position: absolute; z-index: 1; inset-block-start: -18px; inset-inline-start: 28px; display: grid; place-items: center; width: 34px; height: 34px; background: --bg--; color: --accentInk--; transition: inset-inline-start 1.2s cubic-bezier(0.6, 0, 0.2, 1); }
+  .modulex-cagri-kupon-kes-makas .material-symbols-outlined { font-size: 26px; }
+  [dir="rtl"] .modulex-cagri-kupon-kes-makas .material-symbols-outlined { transform: scaleX(-1); }
+  .modulex-cagri-kupon-kes-kupon:hover .modulex-cagri-kupon-kes-makas { inset-inline-start: calc(100% - 64px); }
+  .modulex-cagri-kupon-kes-damga { display: grid; place-content: center; justify-items: center; gap: 8px; padding: 28px 20px; border-start-start-radius: calc(--yuvarlak-- - 3px); border-end-start-radius: calc(--yuvarlak-- - 3px); background: --vurguBg--; color: --vurguText--; text-align: center; }
+  .modulex-cagri-kupon-kes-oran { font-family: var(--mx-font-heading, inherit); font-size: clamp(2.6rem, 6vw, 4.4rem); font-weight: 850; letter-spacing: -0.04em; line-height: 1; }
+  .modulex-cagri-kupon-kes-dust { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-cagri-kupon-kes-kgovde { display: grid; gap: 14px; justify-items: start; padding: clamp(24px, 4vw, 44px); }
+  .modulex-cagri-kupon-kes-kodkutu { display: flex; flex-wrap: wrap; max-width: 100%; overflow: hidden; border: 2px solid --accent--; border-radius: 12px; }
+  .modulex-cagri-kupon-kes-kod { padding: 10px 18px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: clamp(1.1rem, 2.4vw, 1.5rem); font-weight: 800; letter-spacing: 0.18em; overflow-wrap: anywhere; user-select: all; }
+  .modulex-cagri-kupon-kes-kopya { display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; border: 0; background: --accent--; color: --accentText--; font: inherit; font-weight: 750; transition: background 0.25s ease, color 0.25s ease; }
+  .modulex-cagri-kupon-kes-kopya:hover { background: color-mix(in srgb, --accent-- 85%, --yaziRenk--); }
+  .modulex-cagri-kupon-kes-kopya.modulex-cagri-kupon-kes--kopyalandi { background: --yaziRenk--; color: --bg--; }
+  .modulex-cagri-kupon-kes:not(.modulex-cagri-kupon-kes--kjs) .modulex-cagri-kupon-kes-kopya { display: none; }
+  .modulex-cagri-kupon-kes-kpikon { font-size: 20px; }
+  .modulex-cagri-kupon-kes-gec { display: flex; align-items: center; gap: 8px; color: --muted--; font-size: 0.92rem; }
+  .modulex-cagri-kupon-kes-gikon { color: --accentInk--; font-size: 20px; }
+  @media (max-width: 768px) {
+    .modulex-cagri-kupon-kes-kupon { grid-template-columns: minmax(0, 1fr); }
+    .modulex-cagri-kupon-kes-damga { border-end-start-radius: 0; border-start-end-radius: calc(--yuvarlak-- - 3px); }
+  }
+  .modulex-cagri-kupon-kes-wasvg { width: 1.25em; height: 1.25em; flex: none; }
+  .modulex-cagri-kupon-kes-maddeler { display: grid; gap: 12px; }
+  .modulex-cagri-kupon-kes-madde { display: flex; align-items: flex-start; gap: 12px; }
+  .modulex-cagri-kupon-kes-mikon { flex: none; color: --accentInk--; font-size: 24px; }
+  .modulex-cagri-kupon-kes-myazi { display: grid; gap: 2px; }
+  .modulex-cagri-kupon-kes-myazi strong { font-weight: 700; }
+  .modulex-cagri-kupon-kes-myazi small { color: --muted--; font-size: 0.92rem; }
+  .modulex-cagri-kupon-kes-not { color: --muted--; font-size: 0.9rem; }
+  .modulex-cagri-kupon-kes-saat { display: flex; align-items: center; gap: 8px; color: --muted--; font-size: 0.95rem; }
+  .modulex-cagri-kupon-kes-saat .material-symbols-outlined { font-size: 20px; color: --accentInk--; }
+  .modulex-cagri-kupon-kes-metin { max-width: 62ch; }
+
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-cagri-kupon-kes :is(.modulex-cagri-kupon-kes-baslik, .modulex-cagri-kupon-kes-ust, h3, h4, strong) { letter-spacing: 0; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-cagri-kupon-kes-baslik { line-height: 1.35; }
+  @media (max-width: 768px) {
+    .modulex-cagri-kupon-kes { padding-inline: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .modulex-cagri-kupon-kes *, .modulex-cagri-kupon-kes *::before, .modulex-cagri-kupon-kes *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+<script>
+  (() => {
+    const P = "modulex-cagri-kupon-kes";
+    const az = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const kopyala = (s, P) => {
+        if (!navigator.clipboard || !navigator.clipboard.writeText) return;
+        s.classList.add(P + "--kjs");
+        s.querySelectorAll("[data-kopyala]").forEach((b) => {
+          const yazi = b.querySelector("." + P + "-kyazi");
+          const ilk = yazi ? yazi.textContent : "";
+          b.addEventListener("click", () => {
+            const bitti = () => {
+              b.classList.add(P + "--kopyalandi");
+              if (yazi) yazi.textContent = b.dataset.tamam || ilk;
+              setTimeout(() => { b.classList.remove(P + "--kopyalandi"); if (yazi) yazi.textContent = ilk; }, 2000);
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(b.dataset.kopyala).then(bitti, () => {});
+          });
+        });
+      };
+    document.querySelectorAll("." + P).forEach((s) => {
+      if (s.dataset.fbHazir) return;
+      s.dataset.fbHazir = "1";
+      kopyala(s, P, az);
+    });
+  })();
+</script>

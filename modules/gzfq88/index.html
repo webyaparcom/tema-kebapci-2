@@ -1,0 +1,124 @@
+<section class="modulex-sayac-sis{{fbsinif}}" {{fbetiket}}>
+  <div class="modulex-sayac-sis-ic">
+    {{fbbas}}
+    {{fbgovde}}
+  </div>
+</section>
+
+<style>
+  /* sayac-sis — sayac-cubuk ve sayac-kulvar oranı sürekli dolgu/konumla, sayac-nokta-matris eş noktalarla anlatır; bu modül oranı şişe dizilen AYRIK, biçimi değişen parçalar (sap + çubuk + parça + köz iskeleti) olarak sayar — porsiyon satırları (ocakbaşı dili). */
+  .modulex-sayac-sis { box-sizing: border-box; width: 100%; padding: --bosluk-- 20px; background: --bg--; color: --text--; font-size: 1rem; line-height: 1.6; font-family: var(--mx-font-sans, inherit); overflow-wrap: break-word; }
+  .modulex-sayac-sis *, .modulex-sayac-sis *::before, .modulex-sayac-sis *::after { box-sizing: border-box; }
+  /* ham/css.css «* { font-size: 14px }» kalıtımı keser — modül içinde boyut üstten gelsin (ikon yazı tipi hariç) */
+  .modulex-sayac-sis :where(*:not(.material-symbols-outlined)) { font-size: inherit; }
+  /* aynı «*» kuralı font-weight 400 · line-height 1.2 · font-family de basar — modül içinde kalıtım */
+  .modulex-sayac-sis :where(*:not(.material-symbols-outlined)) { font-weight: inherit; line-height: inherit; font-family: inherit; }
+  .modulex-sayac-sis :where(h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd) { margin: 0; }
+  .modulex-sayac-sis :where(ul, ol) { padding: 0; list-style: none; }
+  .modulex-sayac-sis img { display: block; max-width: 100%; }
+  /* <img width height> öznitelik yüksekliği CSS aspect-ratio'yu ezer — sıfır özgüllükle auto (modül sınıfının height'ı yine kazanır) */
+  :where(.modulex-sayac-sis) img { height: auto; }
+  .modulex-sayac-sis [hidden] { display: none !important; }
+  .modulex-sayac-sis :where(a, button, summary, [data-cevir]) { cursor: pointer; }
+  .modulex-sayac-sis :where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-sayac-sis-ic { max-width: --max--; margin-inline: auto; }
+  .modulex-sayac-sis-bas { display: grid; gap: 12px; margin-block-end: clamp(32px, 4vw, 52px); }
+  .modulex-sayac-sis--bassiz .modulex-sayac-sis-bas { display: none; }
+  .modulex-sayac-sis-ust { color: --accentInk--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-sayac-sis-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 750; letter-spacing: -0.025em; line-height: 1.1; }
+  .modulex-sayac-sis-metin { color: --muted--; font-size: 1.05rem; line-height: 1.7; }
+  .modulex-sayac-sis-bas { max-width: 780px; margin-inline: auto; text-align: center; justify-items: center; }
+  .modulex-sayac-sis-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
+  .modulex-sayac-sis-dugme { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 22px; border: 2px solid --accent--; border-radius: 999px; background: --accent--; color: --accentText--; font-weight: 700; text-decoration: none; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease; }
+  .modulex-sayac-sis-dugme:hover { transform: translateY(-2px); }
+  .modulex-sayac-sis-dugme--ikincil { background: transparent; color: --text--; border-color: --cizgi--; }
+  .modulex-sayac-sis-dugme--ikincil:hover { border-color: --accent--; }
+  .modulex-sayac-sis-dugme .material-symbols-outlined { font-size: 20px; }
+
+  .modulex-sayac-sis-tepsi { display: grid; gap: 18px; }
+  .modulex-sayac-sis-porsiyon { display: grid; grid-template-columns: minmax(0, 460px) minmax(0, 1fr); align-items: center; gap: 14px clamp(20px, 4vw, 48px); padding: 18px clamp(16px, 3vw, 28px); border-radius: --yuvarlak--; background: --kartBg--; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+  .modulex-sayac-sis-porsiyon:hover { transform: translateY(-3px); box-shadow: 0 24px 40px -30px color-mix(in srgb, --text-- 50%, transparent); }
+  .modulex-sayac-sis-mangal { --yon: 1; position: relative; width: 100%; max-width: 440px; height: 88px; }
+  [dir="rtl"] .modulex-sayac-sis-mangal { --yon: -1; }
+  .modulex-sayac-sis-cubuk { position: absolute; inset-inline: 30px 0; inset-block-start: 34px; height: 4px; border-start-end-radius: 4px; border-end-end-radius: 4px; background: linear-gradient(180deg, color-mix(in srgb, --text-- 30%, --bg--), color-mix(in srgb, --text-- 58%, --bg--)); }
+  .modulex-sayac-sis-sap { position: absolute; inset-inline-start: 0; inset-block-start: 26px; width: 44px; height: 20px; border-radius: 6px; background: color-mix(in srgb, --accent-- 70%, --text--); box-shadow: inset 0 -4px 0 color-mix(in srgb, --text-- 25%, transparent); }
+  .modulex-sayac-sis-parcalar { position: absolute; inset-inline-start: 54px; inset-block-start: 16px; display: flex; align-items: center; gap: 3px; }
+  .modulex-sayac-sis-parca { width: 34px; height: 40px; border-radius: 9px; transition: transform 0.6s cubic-bezier(0.3, 1.3, 0.6, 1), visibility 0.6s; transition-delay: calc(var(--i) * 0.12s + var(--j) * 60ms); }
+  .modulex-sayac-sis-parca--et { background: radial-gradient(circle at 30% 30%, color-mix(in srgb, --accent-- 30%, --text--), color-mix(in srgb, --accent-- 12%, --text--)); }
+  .modulex-sayac-sis-parca--biber { width: 24px; height: 34px; border-radius: 50% 50% 40% 40%; background: color-mix(in srgb, --accent-- 75%, --bg--); }
+  .modulex-sayac-sis-parca--sogan { width: 20px; height: 32px; border-radius: 40%; background: color-mix(in srgb, --bg-- 82%, --accent--); box-shadow: inset 0 0 0 2px color-mix(in srgb, --accent-- 35%, --bg--); }
+  .modulex-sayac-sis--hazir:not(.modulex-sayac-sis--gor) .modulex-sayac-sis-parca { transform: translateX(calc(var(--yon) * 160%)); visibility: hidden; }
+  .modulex-sayac-sis-kor { position: absolute; inset-inline: 44px 10px; inset-block-end: 2px; height: 14px; border-radius: 7px; background: radial-gradient(circle, color-mix(in srgb, --accent-- 70%, --bg--) 2px, transparent 2.5px) 0 50% / 12px 8px repeat-x, linear-gradient(180deg, color-mix(in srgb, --text-- 30%, --bg--), color-mix(in srgb, --text-- 70%, --bg--)); transform-origin: 50% 100%; animation: modulex-sayac-sis-kor 1s ease-in-out 3 alternate; }
+  @keyframes modulex-sayac-sis-kor { to { transform: scaleY(1.35); filter: brightness(1.2); } }
+  .modulex-sayac-sis-yazi { display: grid; gap: 4px; }
+  .modulex-sayac-sis-sayi { font-size: clamp(2rem, 3.6vw, 2.8rem); font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -0.03em; line-height: 1; }
+  .modulex-sayac-sis-ek { color: --accentInk--; font-size: 0.55em; }
+  .modulex-sayac-sis-etiket { display: flex; align-items: center; gap: 8px; font-size: 1.05rem; font-weight: 700; }
+  .modulex-sayac-sis-ikon { color: --accentInk--; font-size: 20px; }
+  .modulex-sayac-sis-not { color: --muted--; font-size: 0.92rem; }
+  @media (max-width: 768px) {
+    .modulex-sayac-sis-porsiyon { grid-template-columns: minmax(0, 1fr); }
+    .modulex-sayac-sis-mangal { height: 72px; }
+    .modulex-sayac-sis-sap { width: 32px; inset-block-start: 22px; }
+    .modulex-sayac-sis-cubuk { inset-inline-start: 22px; inset-block-start: 30px; }
+    .modulex-sayac-sis-parcalar { inset-inline-start: 38px; inset-block-start: 14px; gap: 2px; }
+    .modulex-sayac-sis-parca { width: 24px; height: 32px; }
+    .modulex-sayac-sis-parca--biber { width: 18px; height: 28px; }
+    .modulex-sayac-sis-parca--sogan { width: 14px; height: 26px; }
+    .modulex-sayac-sis-kor { inset-inline-start: 32px; }
+  }
+
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-sayac-sis :is(.modulex-sayac-sis-baslik, .modulex-sayac-sis-ust, h3, h4, strong) { letter-spacing: 0; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-sayac-sis-baslik { line-height: 1.35; }
+  @media (max-width: 768px) {
+    .modulex-sayac-sis { padding-inline: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .modulex-sayac-sis *, .modulex-sayac-sis *::before, .modulex-sayac-sis *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+<script>
+  (() => {
+    const P = "modulex-sayac-sis";
+    const az = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const gozlem = (s, P, az) => {
+        const gor = () => s.classList.add(P + "--gor");
+        s.classList.add(P + "--hazir");
+        if (az || !("IntersectionObserver" in window)) { gor(); return; }
+        const io = new IntersectionObserver((gs) => {
+          gs.forEach((g) => { if (g.isIntersecting) { gor(); io.disconnect(); } });
+        }, { threshold: 0.15 });
+        io.observe(s);
+      };
+    const sayac = (s, P, az) => {
+        const el = [...s.querySelectorAll("[data-hedef]")];
+        if (!el.length || az || !("IntersectionObserver" in window)) return;
+        const dl = document.documentElement.lang || undefined;
+        const oynat = () => el.forEach((e) => {
+          const h = Number(e.dataset.hedef);
+          const od = Number(e.dataset.ondalik) || 0;
+          const son = e.textContent;
+          if (!Number.isFinite(h)) return;
+          let f;
+          try { f = new Intl.NumberFormat(dl, { minimumFractionDigits: od, maximumFractionDigits: od }); } catch (x) { return; }
+          const t0 = performance.now();
+          const adim = (t) => {
+            const p = Math.min(1, (t - t0) / 1300);
+            e.textContent = p < 1 ? f.format(h * (1 - Math.pow(1 - p, 3))) : son;
+            if (p < 1) requestAnimationFrame(adim);
+          };
+          requestAnimationFrame(adim);
+        });
+        const io = new IntersectionObserver((gs) => {
+          gs.forEach((g) => { if (g.isIntersecting) { oynat(); io.disconnect(); } });
+        }, { threshold: 0.3 });
+        io.observe(s);
+      };
+    document.querySelectorAll("." + P).forEach((s) => {
+      if (s.dataset.fbHazir) return;
+      s.dataset.fbHazir = "1";
+      gozlem(s, P, az);
+      sayac(s, P, az);
+    });
+  })();
+</script>
