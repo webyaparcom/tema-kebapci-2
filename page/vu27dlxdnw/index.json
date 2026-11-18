@@ -3,17 +3,23 @@
   "name": {
     "tr": "Menü",
     "en": "Menu",
-    "ar": "القائمة"
+    "ar": "القائمة",
+    "de": "Menü",
+    "ru": "Меню"
   },
   "description": {
     "tr": "Kara tahta menü ve örnek fiyatlar.",
     "en": "Chalkboard menu and example prices.",
-    "ar": "قائمة السبورة والأسعار النموذجية."
+    "ar": "قائمة السبورة والأسعار النموذجية.",
+    "de": "Kreidetafel-Menü und Beispielpreise.",
+    "ru": "Меню на меловой доске и примерные цены."
   },
   "keyword": {
     "tr": "kebap, şiş, lahmacun, fiyat",
     "en": "kebab, skewer, lahmacun, price",
-    "ar": "كباب، شيش، لحم بعجين، سعر"
+    "ar": "كباب، شيش، لحم بعجين، سعر",
+    "de": "Kebab, Spieß, Lahmacun, Preis",
+    "ru": "кебаб, шашлык, лахмачун, цена"
   },
   "path": "hizmetler",
   "icon": "restaurant_menu",
@@ -33,7 +39,9 @@
   "title": {
     "tr": "Menü",
     "en": "Menu",
-    "ar": "القائمة"
+    "ar": "القائمة",
+    "de": "Menü",
+    "ru": "Меню"
   },
   "date": "2026-11-16T18:03:21.290Z",
   "update": "2026-11-16T18:18:56.687Z"
