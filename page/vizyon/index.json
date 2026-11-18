@@ -3,17 +3,23 @@
   "name": {
     "tr": "Vizyon",
     "en": "Vision",
-    "ar": "الرؤية"
+    "ar": "الرؤية",
+    "de": "Vision",
+    "ru": "Видение"
   },
   "description": {
     "tr": "Vizyonumuz",
     "en": "Our vision",
-    "ar": "رؤيتنا"
+    "ar": "رؤيتنا",
+    "de": "Unsere Vision",
+    "ru": "Наше видение"
   },
   "keyword": {
     "tr": "Vizyon",
     "en": "vision, our vision, goals",
-    "ar": "الرؤية, رؤيتنا, الأهداف"
+    "ar": "الرؤية, رؤيتنا, الأهداف",
+    "de": "Vision",
+    "ru": "Видение"
   },
   "path": "vizyon",
   "icon": "visibility",
@@ -29,12 +35,16 @@
   "text": {
     "tr": "<h2>Vizyonumuz</h2>\n<p>Mahallenin akşam sofrası olarak anılmak.</p>",
     "en": "<h2>Our vision</h2>\n<p>To be known as the neighbourhood's evening table.</p>",
-    "ar": "<h2>رؤيتنا</h2>\n<p>أن نُعرف كمائدة الحي المسائية.</p>"
+    "ar": "<h2>رؤيتنا</h2>\n<p>أن نُعرف كمائدة الحي المسائية.</p>",
+    "de": "<h2>Unsere Vision</h2>\n<p>Als Abendtisch des Viertels bekannt zu sein.</p>",
+    "ru": "<h2>Наше видение</h2>\n<p>Стать для района местом вечернего ужина.</p>"
   },
   "title": {
     "tr": "Vizyon",
     "en": "Vision",
-    "ar": "الرؤية"
+    "ar": "الرؤية",
+    "de": "Vision",
+    "ru": "Видение"
   },
   "date": "2026-11-16T18:03:21.120Z",
   "update": "2026-11-16T18:18:56.703Z",

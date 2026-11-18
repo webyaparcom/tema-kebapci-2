@@ -2,7 +2,9 @@
   "name": {
     "tr": "Ocak",
     "en": "The grill",
-    "ar": "الموقد"
+    "ar": "الموقد",
+    "de": "Grill",
+    "ru": "Мангал"
   },
   "status": "play",
   "category": "",
@@ -23,7 +25,9 @@
   "description": {
     "tr": "Ocak sayacı ve misafir notları.",
     "en": "Grill counter and guest notes.",
-    "ar": "عدّاد الموقد وملاحظات الضيوف."
+    "ar": "عدّاد الموقد وملاحظات الضيوف.",
+    "de": "Herdzähler und Gästenotizen.",
+    "ru": "Счётчик плиты и заметки гостей."
   },
   "spot": {
     "tr": "",
@@ -34,12 +38,16 @@
   "title": {
     "tr": "Ocak",
     "en": "The grill",
-    "ar": "الموقد"
+    "ar": "الموقد",
+    "de": "Grill",
+    "ru": "Мангал"
   },
   "keyword": {
     "tr": "ocakbaşı, yorum",
     "en": "grill house, reviews",
-    "ar": "مشواة، تقييمات"
+    "ar": "مشواة، تقييمات",
+    "de": "Grillplatz, Bewertung",
+    "ru": "очаг, отзыв"
   },
   "text": {},
   "update": "2026-11-16T18:18:56.690Z",

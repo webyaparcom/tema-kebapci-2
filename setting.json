@@ -4,12 +4,16 @@
   "description": {
     "tr": "Közhane: Gaziantep'te meşe kömürü ocakbaşı; kara tahta menü, ikiliden kalabalığa sofra setleri ve masa ayırtma. Demo site; içerik kurgusaldır.",
     "en": "Közhane: an oak-charcoal grill house in Gaziantep; a chalkboard menu, table sets from two to a crowd, and table bookings. Demo site; content is fictional.",
-    "ar": "كوزهانه: مشواة على فحم البلوط في غازي عنتاب؛ قائمة على السبورة وموائد من شخصين إلى مجموعة كبيرة وحجز طاولات. موقع تجريبي؛ المحتوى افتراضي."
+    "ar": "كوزهانه: مشواة على فحم البلوط في غازي عنتاب؛ قائمة على السبورة وموائد من شخصين إلى مجموعة كبيرة وحجز طاولات. موقع تجريبي؛ المحتوى افتراضي.",
+    "de": "Közhane: Ocakbaşı mit Eichenkohle in Gaziantep; Schiefertafel-Menü, Tischsets vom Paar bis zur großen Runde und Tischreservierung. Demo-Website; die Inhalte sind fiktiv.",
+    "ru": "Közhane: окакбашь на дубовых углях в Газиантепе; меню на чёрной доске, наборы для стола от пары до большой компании и бронирование столиков. Демо-сайт; содержание вымышленное."
   },
   "keyword": {
     "tr": "ocakbaşı, kebap, adana, şiş, lahmacun, künefe, Gaziantep",
     "en": "grill house, kebab, adana, skewer, lahmacun, kunefe, Gaziantep",
-    "ar": "مشواة، كباب، أضنة، شيش، لحم بعجين، كنافة، غازي عنتاب"
+    "ar": "مشواة، كباب، أضنة، شيش، لحم بعجين، كنافة، غازي عنتاب",
+    "de": "Ocakbaşı, Kebab, Adana, Spieß, Lahmacun, Künefe, Gaziantep",
+    "ru": "оджакбаши, кебаб, адана, шашлык, лахмаджун, кюнефе, Газиантеп"
   },
   "category": "Kurumsal",
   "name": "Közhane",
@@ -18,15 +22,27 @@
     "tr": true,
     "en": true,
     "ar": true,
-    "de": false,
-    "ru": false,
+    "de": true,
+    "ru": true,
     "es": false,
     "fr": false,
     "it": false,
     "ja": false,
     "zh": false,
     "ko": false,
-    "pt": false
+    "pt": false,
+    "fa": false,
+    "he": false,
+    "ur": false,
+    "nl": false,
+    "pl": false,
+    "uk": false,
+    "az": false,
+    "ka": false,
+    "el": false,
+    "bg": false,
+    "ro": false,
+    "hi": false
   },
   "logo": "logo.png",
   "multi": false,
